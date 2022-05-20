@@ -1,5 +1,13 @@
 para = input("Enter the sentance here : ")
-if "money" or "invest" or "click" or "buy" or "stock" in para:
+if "money" in para:
+    print("This is Scammer")
+elif "invest" in para:
+    print("This is Scammer")
+elif "click" in para:
+    print("This is Scammer")
+elif "buy" in para:
+    print("This is Scammer")
+elif "stock" in para:
     print("This is Scammer")
 else:
-    print("Not a scammer-")
+    print("Not a scammer")

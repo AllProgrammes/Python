@@ -1,0 +1,4 @@
+__pycache__/
+.vscode/
+*.pyc
+#git will not track files that are inside the __pycache__/ and .vscode/ dir and also the files that end with .pyc extension

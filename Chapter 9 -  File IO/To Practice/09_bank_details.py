@@ -1,5 +1,13 @@
+import fontstyle
+
 run = True
 count = 1
+print(
+    fontstyle.apply(
+        "\n\n========================================================================WELCOME TO PARAYA BANK=========================================================================================",
+        "red,bold,yellow_bg",
+    )
+)
 store = open("bank_details.txt", "w")
 store.write(
     "S No.                  Account Holder Name                 Account Number                  Account Balance\n"
@@ -23,10 +31,19 @@ while run == True:
         )
     if count % 5 == 0:
         choice = input(
-            "If you want to exit press 'Y' else press any key to continue : "
+            "\nIf you want to exit press 'Y' else press any key to continue : "
         )
         if choice == "Y" or choice == "y":
             store.close()
+            with open("bank_details.txt", "r") as print_file:
+                print(print_file.read())
+            print(
+                fontstyle.apply(
+                    "\n\n\t\t\t\t\t\t\t\tThanks for choosing PARAYA BANK ^_^",
+                    "red,bold,yellow_bg",
+                )
+            )
+            print("\n\n\n")
             break
         else:
             continue

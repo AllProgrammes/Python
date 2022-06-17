@@ -93,7 +93,6 @@ def arrange_videos():
     else:
         print("Found !!")
     videos = [file for file in files if os.path.splitext(file)[1].lower() in video_ext]
-    # print("Videos : ", videos)
     for item in videos:
         os.replace(item, f"Videos/{item}")
     print(f"Successfully Moved {len(videos)} videos files in 'Videos' folder\n")
@@ -127,14 +126,7 @@ def arrange_other():
         sleep(0.2)
     others_ext = []
     for file in files:
-        ext = os.path.splitext(file)[1].lower()
-        if (
-            (ext not in img_ext)
-            and (ext not in doc_ext)
-            and (ext not in video_ext)
-            and (ext not in audio_ext)
-            and os.path.isfile(file)
-        ):
+        if (os.path.isfile(file):
             others_ext.append(file)
     if os.path.exists("Others") == False:
         print("Not Found !!\nSo creating", end="")
@@ -150,7 +142,7 @@ def arrange_other():
         os.replace(item, f"Others/{item}")
     print(f"Successfully Moved {len(others_ext)} others files in 'Others' folder\n")
 
-
+be_organised_text = "\n\n\t\t\t\t\t\t\t\t\t THANKS FOR CHOOSING ORGANIZER ^_^\n\t\t\t\t\t\t\t\t\t\t #be_organized ✌️"
 if __name__ == "__main__":
     print(
         "\n\nxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx WELCOME TO ORGANIZER xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
@@ -164,18 +156,17 @@ if __name__ == "__main__":
         if user_choice == "":
             print(f"\nATTENTION !!\nCurrent working directory is : {os.getcwd()}\n")
             confirm = input("Press 'y\Y' to confirm : ")
-            if confirm == "y" or confirm == "Y":
+            if confirm.lower() == "y":
                 print("OK BOSS\n")
                 arrange_images()
                 arrange_docs()
                 arrange_videos()
                 arrange_audios()
                 arrange_other()
-                print("\n\n\t\t\t\t\t\t\t\t\t THANKS FOR CHOOSING ORGANIZER ^_^")
-                print("\t\t\t\t\t\t\t\t\t\t #be_organized ✌️")
+                print(be_organised_text)
             else:
                 continue
         else:
-            print("\n\n\t\t\t\t\t\t\t\t\t THANKS FOR CHOOSING ORGANIZER ^_^")
-            print("\t\t\t\t\t\t\t\t\t\t #be_organized ✌️")
+            print(")
+                print(be_organised_text)
             break

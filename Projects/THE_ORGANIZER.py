@@ -113,7 +113,6 @@ def arrange_audios():
     else:
         print("Found !!")
     audios = [file for file in files if os.path.splitext(file)[1].lower() in audio_ext]
-    # print("Audios : ", audios)
     for item in audios:
         os.replace(item, f"Audios/{item}")
     print(f"Successfully Moved {len(audios)} audios files in 'Audios' folder\n")
@@ -137,7 +136,6 @@ def arrange_other():
         print("Done !!")
     else:
         print("Found !!")
-    # print("Others : ", others_ext)
     for item in others_ext:
         os.replace(item, f"Others/{item}")
     print(f"Successfully Moved {len(others_ext)} others files in 'Others' folder\n")

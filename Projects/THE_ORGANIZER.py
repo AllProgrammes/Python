@@ -34,11 +34,20 @@ video_ext = [
 ]
 audio_ext = ["m4a", "flac", "mp3", "mp4", "wav", "wma", "aac"]
 
-# FILE LIST
-files = os.listdir()
+# CURRENT WORKING DIRECTORY
+current_working_directory = os.getcwd()
+
 
 # ALL FUNCTIONS
-def arrange_images():
+def Search_Files():
+    files = []
+    walk_db = os.walk(current_working_directory)
+    for path in walk_db:
+        for file_in_current_path in path[2]:
+            print(file_in_current_path)
+            files.append(os.path.join(path[0], file_in_current_path))
+    return files
+def arrange_images(files):
     print("Searching for 'Images' directory", end="")
     for i in range(10):
         print(".", end="")
@@ -54,11 +63,11 @@ def arrange_images():
         print("Found !!")
     images = [file for file in files if os.path.splitext(file)[1].lower() in img_ext]
     for item in images:
-        os.replace(item, f"Images/{item}")
+        os.replace(item, f"Images/{os.path.basename(item)}")
     print(f"Successfully Moved {len(images)} image files in 'Images' folder\n")
 
 
-def arrange_docs():
+def arrange_docs(files):
     print("Searching for 'Documents' directory", end="")
     for i in range(10):
         print(".", end="")
@@ -74,11 +83,11 @@ def arrange_docs():
         print("Found !!")
     documents = [file for file in files if os.path.splitext(file)[1].lower() in doc_ext]
     for item in documents:
-        os.replace(item, f"Documents/{item}")
+        os.replace(item, f"Documents/{os.path.basename(item)}")
     print(f"Successfully Moved {len(documents)} document files in 'Documents' folder\n")
 
 
-def arrange_videos():
+def arrange_videos(files):
     print("Searching for 'Videos' directory", end="")
     for i in range(10):
         print(".", end="")
@@ -94,11 +103,11 @@ def arrange_videos():
         print("Found !!")
     videos = [file for file in files if os.path.splitext(file)[1].lower() in video_ext]
     for item in videos:
-        os.replace(item, f"Videos/{item}")
+        os.replace(item, f"Videos/{os.path.basename(item)}")
     print(f"Successfully Moved {len(videos)} videos files in 'Videos' folder\n")
 
 
-def arrange_audios():
+def arrange_audios(files):
     print("Searching for 'Audios' directory", end="")
     for i in range(10):
         print(".", end="")
@@ -113,12 +122,13 @@ def arrange_audios():
     else:
         print("Found !!")
     audios = [file for file in files if os.path.splitext(file)[1].lower() in audio_ext]
+    # print("Audios : ", audios)
     for item in audios:
-        os.replace(item, f"Audios/{item}")
+        os.replace(item, f"Audios/{os.path.basename(item)}")
     print(f"Successfully Moved {len(audios)} audios files in 'Audios' folder\n")
 
 
-def arrange_other():
+def arrange_other(files):
     print("Searching for 'Others' directory", end="")
     for i in range(10):
         print(".", end="")
@@ -136,8 +146,9 @@ def arrange_other():
         print("Done !!")
     else:
         print("Found !!")
+    # print("Others : ", others_ext)
     for item in others_ext:
-        os.replace(item, f"Others/{item}")
+        os.replace(item, f"Others/{os.path.basename(item)}")
     print(f"Successfully Moved {len(others_ext)} others files in 'Others' folder\n")
 
 
@@ -148,8 +159,10 @@ if __name__ == "__main__":
     )
     print("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tMade by Biswajit Mishra")
     print(
-        "\n\nThis is a oganizer program which will orgranize all the mess in your system\n"
+        "\n\nThis is a organizer program which will orgranize all the mess in your system\n"
     )
+    files = Search_Files()
+
     while True:
         user_choice = input("Press 'Enter' to start else press any key to exit : ")
         if user_choice == "":
@@ -158,11 +171,11 @@ if __name__ == "__main__":
             try:
                 if confirm.lower() == "y":
                     print("OK BOSS\n")
-                    arrange_images()
-                    arrange_docs()
-                    arrange_videos()
-                    arrange_audios()
-                    arrange_other()
+                    arrange_images(files)
+                    arrange_docs(files)
+                    arrange_videos(files)
+                    arrange_audios(files)
+                    arrange_other(files)
                     print(be_organised_text)
                 else:
                     continue

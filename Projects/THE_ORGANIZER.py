@@ -32,7 +32,7 @@ video_ext = [
     ".flv",
     ".swf",
 ]
-audio_ext = [".m4a", ".flac", ".mp3", ".mp4", ".wav", ".wma", ".aac"]
+audio_ext = [".m4a", ".flac", ".mp3", ".wav", ".wma", ".aac"]
 
 # FILE LIST
 files = os.listdir()

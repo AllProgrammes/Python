@@ -17,7 +17,7 @@ doc_ext = [
 video_ext = [
     ".webm",
     ".mpg",
-    "mp2",
+    ".mp2",
     ".mpeg",
     ".mpe",
     ".mpv",
@@ -32,7 +32,7 @@ video_ext = [
     ".flv",
     ".swf",
 ]
-audio_ext = ["m4a", "flac", "mp3", "mp4", "wav", "wma", "aac"]
+audio_ext = [".m4a", ".flac", ".mp3", ".mp4", ".wav", ".wma", ".aac"]
 
 # FILE LIST
 files = os.listdir()
@@ -148,7 +148,7 @@ if __name__ == "__main__":
     )
     print("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tMade by Biswajit Mishra")
     print(
-        "\n\nThis is a oganizer program which will orgranize all the mess in your system\n"
+        "\n\nThis is a organizer program which will orgranize all the mess in your system\n"
     )
     while True:
         user_choice = input("Press 'Enter' to start else press any key to exit : ")

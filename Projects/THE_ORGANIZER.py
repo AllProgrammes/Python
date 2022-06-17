@@ -157,16 +157,19 @@ if __name__ == "__main__":
         if user_choice == "":
             print(f"\nATTENTION !!\nCurrent working directory is : {os.getcwd()}\n")
             confirm = input("Press 'y\Y' to confirm : ")
-            if confirm.lower() == "y":
-                print("OK BOSS\n")
-                arrange_images()
-                arrange_docs()
-                arrange_videos()
-                arrange_audios()
-                arrange_other()
-                print(be_organised_text)
-            else:
-                continue
+            try:
+                if confirm.lower() == "y":
+                    print("OK BOSS\n")
+                    arrange_images()
+                    arrange_docs()
+                    arrange_videos()
+                    arrange_audios()
+                    arrange_other()
+                    print(be_organised_text)
+                else:
+                    continue
+            except Exception as error:
+                print(f"\nI have encountered an unexpected error :(\nError : {error}")
         else:
             print(be_organised_text)
             break

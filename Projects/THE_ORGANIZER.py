@@ -126,7 +126,7 @@ def arrange_other():
         sleep(0.2)
     others_ext = []
     for file in files:
-        if (os.path.isfile(file):
+        if os.path.isfile(file):
             others_ext.append(file)
     if os.path.exists("Others") == False:
         print("Not Found !!\nSo creating", end="")
@@ -141,6 +141,7 @@ def arrange_other():
     for item in others_ext:
         os.replace(item, f"Others/{item}")
     print(f"Successfully Moved {len(others_ext)} others files in 'Others' folder\n")
+
 
 be_organised_text = "\n\n\t\t\t\t\t\t\t\t\t THANKS FOR CHOOSING ORGANIZER ^_^\n\t\t\t\t\t\t\t\t\t\t #be_organized ✌️"
 if __name__ == "__main__":
@@ -167,6 +168,5 @@ if __name__ == "__main__":
             else:
                 continue
         else:
-            print(")
-                print(be_organised_text)
+            print(be_organised_text)
             break

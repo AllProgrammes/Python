@@ -5,7 +5,8 @@ import time
 
 def generate_pass(length):
     password = "".join(
-        secrets.choice(string.ascii_letters + string.digits) for x in range(length)
+        secrets.choice(string.ascii_letters + string.digits + string.punctuation)
+        for x in range(length)
     )
     return password
 
@@ -37,13 +38,14 @@ if __name__ == "__main__":
 Working of generate_pass function :-
 
 1. First of all the variable "password" is list type and  {"".join} is the function used for joining lists
-2. {string.ascii_letters + string.digits} will generate a list of values which will have all ASCII letters both lower and upper case 
+2. {string.ascii_letters + string.digits + string.punctuation} will generate a list of values which will have all ASCII letters both lower and upper case 
             
             string.ascii_letters --> abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
             string.digits --> 0123456789
+            string.punctuation --> !"#$%&'()*+, -./:;<=>?@[\]^_`{|}~
             
             Hence,
-                string.ascii_letters + string.digits = abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789
+                string.ascii_letters + string.digits +string.punctuation = abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!"#$%&'()*+, -./:;<=>?@[\]^_`{|}~
 3. Doing secrets.choice(string.ascii_letters + string.digits) will take a random character from the above aplhanumerical list 
 4. for x in range(length) --> will perform the above work {length} times 
 5. we will get a list like ["4","j","X","z","o","r","3","V","h","d"] but becasue 

@@ -101,9 +101,9 @@ def arrange_docs():
                 print("Found !!")
         for item in documents:
             os.replace(item, f"Documents/{item}")
-            print(
-                f"Successfully Moved {len(documents)} document files in 'Documents' folder"
-            )
+        print(
+            f"Successfully Moved {len(documents)} document files in 'Documents' folder"
+        )
     except Exception as error:
         print(f"\nI have encountered an unexpected error :(\nError : {error}")
 
